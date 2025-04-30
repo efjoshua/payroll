@@ -29,51 +29,53 @@ export default function AuthScreen() {
               {isLogin ? 'Get Started' : 'Sign in'}
             </Text>
           </Text>
-          <Text style={styles.logo}>Jobsly</Text>
+          <Text style={styles.logo}>Phibmat</Text>
         </View>
 
-        <View style={styles.form}>
-          <Text style={styles.title}>{isLogin ? 'Welcome Back' : 'Get started free.'}</Text>
-          <Text style={styles.subtitle}>
-            {isLogin
-              ? 'Enter your details below'
-              : 'Free forever. No credit card needed.'}
-          </Text>
+        <View style={styles.formWrapper}>
+          <View style={styles.form}>
+            <Text style={styles.title}>{isLogin ? 'Welcome Back' : 'Get started free.'}</Text>
+            <Text style={styles.subtitle}>
+              {isLogin
+                ? 'Enter your details below'
+                : 'Free forever. No credit card needed.'}
+            </Text>
 
-          <TextInput placeholder="Email Address" style={styles.input} keyboardType="email-address" />
+            <TextInput placeholder="Email Address" style={styles.input} keyboardType="email-address" />
 
-          {!isLogin && (
-            <TextInput placeholder="Your name" style={styles.input} />
-          )}
+            {!isLogin && (
+              <TextInput placeholder="Your name" style={styles.input} />
+            )}
 
-          <TextInput
-            placeholder="Password"
-            secureTextEntry
-            style={styles.input}
-          />
+            <TextInput
+              placeholder="Password"
+              secureTextEntry
+              style={styles.input}
+            />
 
-          <LinearGradient colors={['#6C63FF', '#A084E8']} style={styles.button}>
-            <TouchableOpacity style={{ flex: 1, justifyContent: 'center' }}>
-              <Text style={styles.buttonText}>{isLogin ? 'Sign in' : 'Sign up'}</Text>
-            </TouchableOpacity>
-          </LinearGradient>
+            <LinearGradient colors={['#6C63FF', '#A084E8']} style={styles.button}>
+              <TouchableOpacity style={{ flex: 1, justifyContent: 'center' }}>
+                <Text style={styles.buttonText}>{isLogin ? 'Sign in' : 'Sign up'}</Text>
+              </TouchableOpacity>
+            </LinearGradient>
 
-          {isLogin && (
-            <Text style={styles.forgot}>Forgot your password?</Text>
-          )}
+            {isLogin && (
+              <Text style={styles.forgot}>Forgot your password?</Text>
+            )}
 
-          <Text style={styles.or}>Or sign in with</Text>
+            <Text style={styles.or}>Or sign in with</Text>
 
-          <View style={styles.socialRow}>
-            <TouchableOpacity style={styles.socialButton}>
-              <AntDesign name="google" size={20} color="#DB4437" />
-              <Text style={styles.socialText}>Google</Text>
-            </TouchableOpacity>
+            <View style={styles.socialRow}>
+              <TouchableOpacity style={styles.socialButton}>
+                <AntDesign name="google" size={20} color="#DB4437" />
+                <Text style={styles.socialText}>Google</Text>
+              </TouchableOpacity>
 
-            <TouchableOpacity style={styles.socialButton}>
-              <AntDesign name="facebook-square" size={20} color="#4267B2" />
-              <Text style={styles.socialText}>Facebook</Text>
-            </TouchableOpacity>
+              {/* <TouchableOpacity style={styles.socialButton}>
+                <AntDesign name="facebook-square" size={20} color="#4267B2" />
+                <Text style={styles.socialText}>Facebook</Text>
+              </TouchableOpacity> */}
+            </View>
           </View>
         </View>
       </ScrollView>
@@ -88,20 +90,20 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     flexGrow: 1,
-    justifyContent: 'flex-start',
-    padding: 24,
+    padding: 0,
   },
   topGradient: {
     position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
-    height: height * 0.3,
+    height: height * 0.7,
     zIndex: -1,
   },
   header: {
     alignItems: 'center',
-    marginBottom: 30,
+    marginTop: 80,
+    marginBottom: 20,
   },
   topLink: {
     fontSize: 14,
@@ -117,6 +119,14 @@ const styles = StyleSheet.create({
     color: '#fff',
     marginTop: 10,
   },
+  formWrapper: {
+    flex: 1,
+    backgroundColor: '#F7F8FD',
+    borderTopLeftRadius: 32,
+    borderTopRightRadius: 32,
+    padding: 24,
+    marginTop: -20,
+  },
   form: {
     backgroundColor: '#fff',
     padding: 24,
@@ -125,7 +135,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 10,
     elevation: 5,
-    marginTop: -30,
   },
   title: {
     fontSize: 22,
@@ -183,5 +192,23 @@ const styles = StyleSheet.create({
   socialText: {
     marginLeft: 8,
     fontWeight: '500',
+  },
+
+  topGradient: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: height * 0.75, // was 0.7 — make it taller
+    zIndex: -1,
+  },
+  
+  formWrapper: {
+    flex: 1,
+    backgroundColor: '#F7F8FD',
+    borderTopLeftRadius: 32,
+    borderTopRightRadius: 32,
+    padding: 24,
+    marginTop: 70, // was -60 — now pushed clearly below the gradient
   },
 });
