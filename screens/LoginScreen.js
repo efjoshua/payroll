@@ -65,17 +65,17 @@ export default function AuthScreen() {
 
             <Text style={styles.or}>Or sign in with</Text>
 
-            <View style={styles.socialRow}>
+            {/* <View style={styles.socialRow}>
               <TouchableOpacity style={styles.socialButton}>
                 <AntDesign name="google" size={20} color="#DB4437" />
                 <Text style={styles.socialText}>Google</Text>
               </TouchableOpacity>
 
-              {/* <TouchableOpacity style={styles.socialButton}>
+              <TouchableOpacity style={styles.socialButton}>
                 <AntDesign name="facebook-square" size={20} color="#4267B2" />
                 <Text style={styles.socialText}>Facebook</Text>
-              </TouchableOpacity> */}
-            </View>
+              </TouchableOpacity>
+            </View> */}
           </View>
         </View>
       </ScrollView>
@@ -209,6 +209,6 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 32,
     borderTopRightRadius: 32,
     padding: 24,
-    marginTop: 70, // was -60 — now pushed clearly below the gradient
+    marginTop: 100, // was -60 — now pushed clearly below the gradient
   },
 });
