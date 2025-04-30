@@ -14,7 +14,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 const features = [
   { title: 'Add Lecturers', icon: 'person-add' },
   { title: 'Add Departments', icon: 'business' },
-  { title: 'Add Courses', icon: 'book' },
+  { title: 'Add Courses', icon: 'book' , route: 'AddCourses'},
   { title: 'Assign Courses', icon: 'swap-horizontal' },
   { title: 'Program Courses', icon: 'calendar' },
   { title: 'Set Pay Rate', icon: 'cash' },
@@ -34,7 +34,8 @@ export default function AdminDashboard({ navigation }) {
           <TouchableOpacity
             key={index}
             style={styles.card}
-            onPress={() => alert(`${item.title} tapped`)} // replace with navigation later
+            onPress={() => navigation.navigate(item.route)}
+
           >
             <Ionicons name={item.icon} size={32} color="#6C63FF" />
             <Text style={styles.cardText}>{item.title}</Text>

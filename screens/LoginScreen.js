@@ -71,7 +71,7 @@ export default function AuthScreen({ navigation }) {
             >
               <TouchableOpacity
                 style={{ flex: 1, justifyContent: 'center' }}
-                onPress={() => navigation.replace('Dashboard')}
+                onPress={() => navigation.replace('AdminDrawer')}
               >
                 <Text style={styles.buttonText}>
                   {isLogin ? 'Sign in' : 'Sign up'}
