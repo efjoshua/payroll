@@ -53,7 +53,7 @@ export default function SignupScreen({ navigation }) {
             colors={['#004e92', '#0077b6']}
             style={styles.button}
           >
-            <Text style={styles.buttonText}>SIGN UP</Text>
+            <Text style={styles.buttonText}  >SIGN UP</Text>
           </LinearGradient>
         </TouchableOpacity>
 
