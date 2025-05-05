@@ -21,7 +21,7 @@ const features = [
   { title: 'Generate Payroll', icon: 'document-text' },
   { title: 'View Validation', icon: 'checkmark-done-circle' },
   { title: 'Handle Requests', icon: 'help-buoy' },
-  { title: 'View Timetable', icon: 'calendar-outline' },
+  { title: 'View Timetable', icon: 'calendar-outline' ,route: 'Time Table'},
   { title: 'Make Payments', icon: 'card' },
   { title: 'Print Reports', icon: 'print' },
 ];
