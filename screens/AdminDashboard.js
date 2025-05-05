@@ -14,13 +14,14 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 const features = [
   { title: 'Add Lecturers', icon: 'person-add' },
   { title: 'Add Departments', icon: 'business' },
-  { title: 'Add Courses', icon: 'book' , route: 'AddCourses'},
-  { title: 'Assign Courses', icon: 'swap-horizontal' },
-  { title: 'Program Courses', icon: 'calendar' },
+  { title: 'Add Courses', icon: 'book' , route: 'Add Courses'},
+  { title: 'Assign Courses', icon: 'swap-horizontal' , route: 'AssignCourses' },
+  { title: 'Program Courses', icon: 'calendar', route: 'Program Courses' },
   { title: 'Set Pay Rate', icon: 'cash' },
   { title: 'Generate Payroll', icon: 'document-text' },
   { title: 'View Validation', icon: 'checkmark-done-circle' },
   { title: 'Handle Requests', icon: 'help-buoy' },
+  { title: 'View Timetable', icon: 'calendar-outline' },
   { title: 'Make Payments', icon: 'card' },
   { title: 'Print Reports', icon: 'print' },
 ];
