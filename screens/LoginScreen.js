@@ -12,10 +12,10 @@ import {
   Keyboard,
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
+  ActivityIndicator,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Ionicons } from '@expo/vector-icons';
 import { auth } from '../config/firebaseConfig';
 import {
   createUserWithEmailAndPassword,
@@ -30,6 +30,7 @@ export default function AuthScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleAuth = async () => {
     if (!email || !password || (!isLogin && !name)) {
@@ -38,6 +39,7 @@ export default function AuthScreen({ navigation }) {
     }
 
     try {
+      setLoading(true);
       if (isLogin) {
         await signInWithEmailAndPassword(auth, email, password);
         Alert.alert('Success', 'Logged in!');
@@ -50,6 +52,8 @@ export default function AuthScreen({ navigation }) {
       }
     } catch (error) {
       Alert.alert('Auth Failed', error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -63,10 +67,7 @@ export default function AuthScreen({ navigation }) {
         <SafeAreaView style={styles.container}>
           <LinearGradient colors={['#6C63FF', '#A084E8']} style={styles.topGradient} />
 
-          <ScrollView
-            contentContainerStyle={styles.scrollContainer}
-            keyboardShouldPersistTaps="handled"
-          >
+          <ScrollView contentContainerStyle={styles.scrollContainer} keyboardShouldPersistTaps="handled">
             <View style={styles.header}>
               <Text style={styles.topLink}>
                 {isLogin ? "Don't have an account? " : 'Already have an account? '}
@@ -79,13 +80,9 @@ export default function AuthScreen({ navigation }) {
 
             <View style={styles.formWrapper}>
               <View style={styles.form}>
-                <Text style={styles.title}>
-                  {isLogin ? 'Welcome Back' : 'Get started free.'}
-                </Text>
+                <Text style={styles.title}>{isLogin ? 'Welcome Back' : 'Get started free.'}</Text>
                 <Text style={styles.subtitle}>
-                  {isLogin
-                    ? 'Enter your details below'
-                    : 'Free forever. No credit card needed.'}
+                  {isLogin ? 'Enter your details below' : 'Free forever. No credit card needed.'}
                 </Text>
 
                 <TextInput
@@ -118,8 +115,13 @@ export default function AuthScreen({ navigation }) {
                   <TouchableOpacity
                     style={{ flex: 1, justifyContent: 'center' }}
                     onPress={handleAuth}
+                    disabled={loading}
                   >
-                    <Text style={styles.buttonText}>{isLogin ? 'Sign in' : 'Sign up'}</Text>
+                    {loading ? (
+                      <ActivityIndicator size="small" color="#fff" />
+                    ) : (
+                      <Text style={styles.buttonText}>{isLogin ? 'Sign in' : 'Sign up'}</Text>
+                    )}
                   </TouchableOpacity>
                 </LinearGradient>
 
@@ -180,6 +182,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     marginBottom: 12,
+    height: 50,
   },
   buttonText: {
     color: '#fff',
