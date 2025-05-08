@@ -10,6 +10,9 @@ import AddCourseScreen from './screens/AddCourseScreen';
 import AssignCourseScreen from './screens/AssignCourseScreen';
 import ProgramCourseScreen from './screens/ProgramCourseScreen';
 import TimetableScreen from './screens/TimetableScreen';
+import AddDepartmentScreen from './screens/AddDepartmentScreen';
+import ViewDepartmentsScreen from './screens/ViewDepartmentsScreen';
+import EditDepartmentScreen from './screens/EditDepartmentScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -33,6 +36,9 @@ function AdminDrawer() {
       <Drawer.Screen name="AssignCourses" component={AssignCourseScreen} />
       <Drawer.Screen name="Program Courses" component={ProgramCourseScreen} />
       <Drawer.Screen name="Time Table" component={TimetableScreen} />
+      <Drawer.Screen name="Add_Department" component={AddDepartmentScreen} />
+      <Drawer.Screen name="DepartmentList" component={ViewDepartmentsScreen} />
+      <Drawer.Screen name="EditDepartment" component={EditDepartmentScreen} />
 
       {/* You can add more items here */}
     </Drawer.Navigator>

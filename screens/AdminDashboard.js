@@ -13,7 +13,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 const features = [
   { title: 'Add Lecturers', icon: 'person-add' },
-  { title: 'Add Departments', icon: 'business' },
+  { title: 'Add Departments', icon: 'business', route: 'Add_Department' },
   { title: 'Add Courses', icon: 'book' , route: 'Add Courses'},
   { title: 'Assign Courses', icon: 'swap-horizontal' , route: 'AssignCourses' },
   { title: 'Program Courses', icon: 'calendar', route: 'Program Courses' },
